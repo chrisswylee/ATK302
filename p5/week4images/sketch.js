@@ -1,19 +1,26 @@
-
-var lalala;
-
+var myFont;
+var x = 0;
 function preload() {
-  lalala = loadSound('assets/Lalala.mp3');
+  myFont = loadFont('assets/ChineseDragon.ttf');  // find an otf or ttf
 }
 
 function setup() {
-
-  createCanvas(720, 200);
-  background(255, 0, 0);
-  lalala.play();  // this is what starts the sound
-
+  createCanvas(1000, 800) ;
 }
-
 function draw() {
 
+  background (255,240,245);
+  fill('#ED225D');   // SETS the color
+  textFont(myFont);  // SETS the font
+  textSize(400);	// SETS the size of the font
+  text('NI HAO', x, 300); // DISPLAYS TEXT WITH THE FONT
+x = x +1;// x++
+
+if (x > width) {
+  x = 0
+  myfont();
 
 }
+
+}
+function myfont() {}

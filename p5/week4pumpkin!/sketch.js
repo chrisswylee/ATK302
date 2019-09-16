@@ -6,12 +6,13 @@ function setup() {
   // put setup code here
   createCanvas(1200, 1200);
   rockstarpusheen = loadImage("pics/rockstarpusheen.jpg");
+
 }
 
 function draw() {
   // put drawing code here
-background (255,228,225);
-  image(rockstarpusheen,0,0);
+background (255,182,193) ;
+  image(rockstarpusheen,50,50);
 
 push();
 translate(x,10);
@@ -19,6 +20,7 @@ x++ ;
 x += 100;
 if (x > width) {
 x = 0;
+
 }
 bat ();
 

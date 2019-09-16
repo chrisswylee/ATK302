@@ -1,18 +1,18 @@
-var rockstarpusheen;
+var pusheen;
 var x = 0;
 
 
 function setup() {
   // put setup code here
   createCanvas(1200, 1200);
-  rockstarpusheen = loadImage("pics/rockstarpusheen.jpg");
+  pusheen = loadImage("pics/pusheen.jpg");
 
 }
 
 function draw() {
   // put drawing code here
 background (255,182,193) ;
-  image(rockstarpusheen,50,50);
+  image (pusheen,50,50);
 
 push();
 translate(x,10);

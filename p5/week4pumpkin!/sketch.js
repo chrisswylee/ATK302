@@ -1,39 +1,40 @@
-var pusheen;
-var x = 0;
+var pusheen ;
+var x = 0 ;
+
 
 
 function setup() {
   // put setup code here
   createCanvas(1200, 1200);
-  pusheen = loadImage("pics/pusheen.jpg");
+  pusheen = loadImage("pics/pusheen.jpg") ;
 
 }
 
 function draw() {
   // put drawing code here
-background (255,182,193) ;
-  image (pusheen,50,50);
+  background(255, 182, 193) ;
+  image(pusheen, 0, 0) ;
 
-push();
-translate(x,10);
-x++ ;
-x += 100;
-if (x > width) {
-x = 0;
+  push() ;
+  translate(x, 10) ;
+  x++ ;
+  x += 100 ;
+  if (x > width) {
+    x = 0 ;
 
-}
-bat ();
+  }
+  bat() ;
 
-pop();
+  pop() ;
 }
 
 function mouseReleased() {
-  console.log(mouseX + ", " + mouseY);
+  console.log(mouseX + ", " + mouseY) ;
 }
 
 function bat() {
   // bat
-  fill(0);
+  fill(1);
   triangle(372, 108, 358, 76, 352, 114);
   triangle(329, 115, 310, 88, 315, 126);
   ellipse(346, 138, 70, 70);

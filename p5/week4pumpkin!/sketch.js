@@ -23,9 +23,9 @@ function draw() {
     x = 0 ;
 
   }
-  bat() ;
+  bat();
 
-  pop() ;
+  pop();
 }
 
 function mouseReleased() {

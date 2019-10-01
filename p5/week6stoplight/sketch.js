@@ -9,7 +9,7 @@ function preload() {
 }
 function setup() {
   // put setup code here
-  createCanvas(1000, 1000) ;
+  createCanvas(2000, 1000) ;
   rectMode(CENTER) ;
   ellipseMode(CENTER) ;
   pusheen = loadImage("assets/bubbleboat.png") ;
@@ -30,13 +30,13 @@ function draw() {
   ellipse(width/2, height/2, -100, 100, 100) ;
 
   fill('red') ;
-  ellipse(500, 361, 100, 100) ;
+  ellipse(width/2, 361, 100, 100) ;
 
   fill('grey') ;
   ellipse(500, 636, 100, 100) ;
 
   image(pusheen, 0, 0) ;
-  line(500, 250, 500, 0) ;
+  line(1000, 250, 1000, 0) ;
 
 
 
@@ -53,7 +53,7 @@ function draw() {
     rect(width/2, height/2, 200, 500) ;
 
     fill('red') ;
-    ellipse(500, 361, 100, 100) ;
+    ellipse(width/2, 361, 100, 100) ;
 
     fill('grey') ;
     ellipse(width/2, height/2, 100, 100) ;
@@ -61,7 +61,7 @@ function draw() {
     ellipse(width/2, height/2, -100, 100, 100) ;
 
     fill('grey') ;
-    ellipse(500, 636, 100, 100) ;
+    ellipse(width/2, 636, 100, 100) ;
     timer++ ;
     if (timer >= 470) {
       myState = 1 ;
@@ -89,7 +89,7 @@ function draw() {
     rect(width/2, height/2, 200, 500) ;
 
     fill('grey') ;
-    ellipse(500, 361, 100, 100) ;
+    ellipse(width/2, 361, 100, 100) ;
 
     fill('yellow') ;
     ellipse(width/2, height/2, 100, 100) ;
@@ -97,7 +97,7 @@ function draw() {
     ellipse(width/2, height/2, -100, 100, 100) ;
 
     fill('grey') ;
-    ellipse(500, 636, 100, 100) ;
+    ellipse(width/2, 636, 100, 100) ;
     timer++ ;
     if (timer >= 470) {
       myState = 2 ;
@@ -106,7 +106,7 @@ function draw() {
     push() ;
     translate(x, 0) ;
     x++ ;
-    x += 30 ;
+    x += 50 ;
     if (x > width) {
       x = 0 ;
 
@@ -121,7 +121,7 @@ function draw() {
     rect(width/2, height/2, 200, 500) ;
 
     fill('grey') ;
-    ellipse(500, 361, 100, 100) ;
+    ellipse(width/2, 361, 100, 100) ;
 
     fill('grey') ;
     ellipse(width/2, height/2, 100, 100) ;
@@ -129,7 +129,7 @@ function draw() {
     ellipse(width/2, height/2, -100, 100, 100) ;
 
     fill('green') ;
-    ellipse(500, 636, 100, 100) ;
+    ellipse(width/2, 636, 100, 100) ;
     timer++ ;
     if (timer >= 450) {
       myState = 3 ;
@@ -138,7 +138,7 @@ function draw() {
     push() ;
     translate(x, 0) ;
     x++ ;
-    x += 150 ;
+    x += 400 ;
     if (x > width) {
       x = 0 ;
 
@@ -153,7 +153,7 @@ function draw() {
     rect(width/2, height/2, 200, 500) ;
 
     fill('red') ;
-    ellipse(500, 361, 100, 100) ;
+    ellipse(width/2, 361, 100, 100) ;
 
     fill('grey') ;
     ellipse(width/2, height/2, 100, 100) ;
@@ -161,7 +161,7 @@ function draw() {
     ellipse(width/2, height/2, -100, 100, 100) ;
 
     fill('grey') ;
-    ellipse(500, 636, 100, 100) ;
+    ellipse(width/2, 636, 100, 100) ;
     timer++ ;
     if (timer >= 450) {
       myState = 0;

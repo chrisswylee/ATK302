@@ -217,3 +217,7 @@ function car() {
   ellipse(185, 904, 30, 30) ;
 
 }
+
+function touchStarted() {
+    getAudioContext().resume();
+}

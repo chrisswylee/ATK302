@@ -110,7 +110,7 @@ function draw() {
     push() ;
     translate(0, y) ;
     y++ ;
-    y += 400 ;
+    y += 50 ;
     if (y > height) {
       y = 0 ;
 
@@ -157,7 +157,7 @@ function draw() {
     push() ;
     translate(x, 0) ;
     x++ ;
-    x += 400 ;
+    x += 100 ;
     if (x > width) {
       x = 0 ;
 
@@ -176,11 +176,11 @@ function draw() {
    timer = 0 ;
  }
  push() ;
- translate(x, 0) ;
- x++ ;
- x += 400 ;
- if (x > width) {
-   x = 0 ;
+ translate(0, y) ;
+ y++ ;
+ y += 20 ;
+ if (y > height) {
+   y = 0 ;
 
  }
  car() ;

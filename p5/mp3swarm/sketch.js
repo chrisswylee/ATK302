@@ -134,6 +134,10 @@ function mouseReleased() {
 
 }
 
+function touchStarted() {
+    getAudioContext().resume();
+}
+
 function Car() {
   //attribute
   this.pos = createVector(random(width), random(height));

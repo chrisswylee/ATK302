@@ -68,7 +68,12 @@ function draw() {
       text("Kirby needs your help!", width / 2 - 720, height / 2 -100);
       textSize(100);
       text("Run King DeDeDe over to win.", width/2 - 710, height/2 + 150);
-      text("Click to Start ;)", width / 2 -250, height / 2 + 300);
+      text("Click to Start ;)", x, height / 2 + 300);
+
+      x++ ;
+      if (x > width) {
+        x = 0 ;
+      }
 
       break;
 

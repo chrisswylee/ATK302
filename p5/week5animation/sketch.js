@@ -3,7 +3,7 @@ var myFont ;
 
 
 function preload() {
-  myFont = loadfont ('assets/miss_rhinetta.ttf') ;
+  myFont = loadFont('assets/missrhinetta.ttf') ;
 
 }
 function setup() {
@@ -25,7 +25,7 @@ function draw() {
 
   if (x > width) {
     x = 0
-    
+
 
   }
 

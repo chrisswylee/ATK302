@@ -72,7 +72,7 @@ function draw() {
 
       x++ ;
       if (x > width) {
-        x = 0 ; 
+        x = 0 ;
       }
 
       break;

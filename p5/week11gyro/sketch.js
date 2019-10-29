@@ -61,12 +61,13 @@ function draw() {
 
   for (var i = 0; i < cars.length; i++) {
 
+
 cars[i].display() ;
 cars[i].drive() ;
 if (cars[i].pos.dist(frogpos) < 50) {
   cars.splice(i, 1) ;
 
-
+  }
 }
 
 
@@ -92,7 +93,7 @@ if (cars[i].pos.dist(frogpos) < 50) {
   noStroke();
   textSize(300);
   textAlign(CENTER);
-  text("atk", width / 2, height / 2);
+  text("FUCK?", width / 2, height / 2);
 
 
 
@@ -112,13 +113,11 @@ function Car() {
 
 
     fill(this.r, this.g, this.b) ;
-    rect(this.pos.x, this.pos.y, 100, 100) ;
+    rect(this.pos.x, this.pos.y, 500, 20) ;
 
-    ellipse(this.pos.x, this.pos.y, 20, 20) ;
-    ellipse(this.pos.x, this.pos.y, 20, 200) ;
-    ellipse(this.pos.x, this.pos.y, 100, 20) ;
-    textSize(100) ;
-    text("loltyler1", this.pos.x, this.pos.y) ;
+
+    textSize(200) ;
+    text("FUCK", this.pos.x, this.pos.y) ;
 
   }
 

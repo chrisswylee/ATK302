@@ -2,7 +2,10 @@ var weather;
 var temp = 0;
 var weatherID = 0; // returned in the JSON weather element
 var myState = 0;
-var d
+//var d
+var x = 0;
+var windspeed = 0 ;
+var temp = 0 ;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -20,6 +23,8 @@ function setup() {
 function gotData(data) {
   weather = data;
   console.log(data); // for debugging purposes, print out the JSON data when we get it.
+  windspeed = weather.wind.speed ;
+  temp = weather.main.temp ;
 }
 
 
@@ -34,13 +39,31 @@ function draw() {
     case 1:
     background(127,255,212) ;
     textSize(75) ;
+    image(d, x, 600, 300, 300) ;
+    fill(1) ;
     text("we have fucking weather (^・ω・^ )", width/2 - 700, height/2 - 100) ;
 // parse the weather object and put some text for some at least 3 different weather data!
     text("temperature = " + weather.main.temp, 500, 500) ;
     text("wind speed = " + weather.wind.speed, 500, 600) ;
     text("humidity = " + weather.main.humidity, 500, 700) ;
-    image(d, width/2, height/2, 500, 500) ;
+
+    //cloud
+    fill("white");
+    noStroke() ;
+    ellipse(x, 100, 500, 300) ;
+    x = x + windspeed/2 ;
+    if (x > width)
+     x = 0 ;
+
+     fill("red") ;
+     var mappedTemp = 0 ;
+     mappedTemp = map(temp, -10, 100, 0, height) ;
+     rect(width-30, height-70, 20, mappedTemp) ;
+
+
       break;
+
+
 
   }
 }

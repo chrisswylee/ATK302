@@ -13,7 +13,6 @@ var timer = 0;
 var carPos;
 
 
-
 function preload() {
   song1 = loadSound("assets/lazerhawk.mp3"); //Chris song1
 
@@ -22,11 +21,12 @@ function preload() {
 function setup() {
 
 
-  tree1 = loadImage("assets/tree.png");
+  tree1 = loadImage("assets/treereal.png");
   tree2 = loadImage("assets/treesmall.png");
-  sign1 = loadImage("assets/sign.png");
+  sign1 = loadImage("assets/chasesign1.png");
   sign2 = loadImage("assets/signsmall.png");
   retroracer = loadImage("assets/retroracer.png");
+
 
   imageMode(CENTER);
 
@@ -59,6 +59,8 @@ function draw() {
       break;
 
     case 1:
+
+
       push();
 
       nighttime();
@@ -89,15 +91,9 @@ function draw() {
     case 2:
       daylight();
 
-      break;
-
-    case 3:
 
       break;
 
-    case 4:
-
-      break;
 
 
   }
@@ -110,6 +106,29 @@ function mouseReleased() {
   daysunpos = 200;
   nightsunpos = 200;
   if (myState > 2) myState = 0;
+  switch (myState) {
+      case 0:
+      song1.play() ;
+      myState = 1;
+      break;
+
+      case 1:
+      song1.pause() ;
+      song1.play() ;
+      myState = 2;
+      break;
+
+      case 2:
+
+      myState = 0;
+      break;
+
+
+
+  }
+
+
+
 }
 
 function mouseLocation() {
@@ -144,7 +163,8 @@ function Car() {
     //
     // fill(this.r, this.g, this.b) ;
     // rect(this.pos.x, this.pos.y, 100, 100) ;
-    image(tree1, this.pos.x, this.pos.y, 300 * this.pos.y / 80, 800 * this.pos.y / 250);
+    image(tree1, this.pos.x, this.pos.y, 175, 300  );
+    image(sign1, this.pos.x, this.pos.y, 100 , 125 );
 
 
 
@@ -163,16 +183,16 @@ function Car() {
 
 
 function checkForKeys() {
-  if (keyIsDown(LEFT_ARROW)) carPos.x = carPos.x - 15;
-  if (keyIsDown(RIGHT_ARROW)) carPos.x = carPos.x + 15;
+  if (keyIsDown(LEFT_ARROW)) carPos.x = carPos.x - 15; //velocity arrow value
+  if (keyIsDown(RIGHT_ARROW)) carPos.x = carPos.x + 15; //velocity arrow value
 
 
-  if ((keyIsDown(UP_ARROW)) && (carPos.y > 325)) {
-    carPos.y = carPos.y - 15;
+  if ((keyIsDown(UP_ARROW)) && (carPos.y > 280)) {
+    carPos.y = carPos.y - 15; //velocity arrow value
   }
 
   if ((keyIsDown(DOWN_ARROW)) && (carPos.y < height - 30)) {
-    carPos.y = carPos.y + 15;
+    carPos.y = carPos.y + 15; //velocity arrow value
 
   }
 

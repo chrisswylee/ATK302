@@ -13,6 +13,9 @@ var timer = 0;
 var carPos;
 var loading;
 var count = 0;
+var fuckedup = 0;
+var leftwall = 400;
+var rightwall = 1229;
 
 function preload() {
   song1 = loadSound("assets/lazerhawk.mp3"); //Chris song1
@@ -44,6 +47,7 @@ function setup() {
 
 
   carPos = createVector(800, 600);
+
 
 
 
@@ -90,6 +94,11 @@ function draw() {
           count++;
 
         }
+        // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
+        //   cars.splice(i, 1) ;
+        //   fuckedup++;
+        // }
+
       }
       image(retroracer, carPos.x, carPos.y, 500 * carPos.y / 600, 500 * carPos.y / 560);
       checkForKeys();
@@ -98,6 +107,7 @@ function draw() {
       text(mouseX + ',' + mouseY, 20, 20);
       textSize(25);
       text("Enemies defeated: " + count, 1400, 50) ;
+      // text("YOU FUCKED UP: " + fuckedup, 20, 40) ;
 
 
       break;
@@ -261,7 +271,7 @@ function checkForKeys() {
 
   }
 
-
+carPos.x = constrain(carPos.x, leftwall, rightwall) ;
 
 
 

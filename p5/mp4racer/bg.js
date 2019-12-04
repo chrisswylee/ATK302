@@ -14,7 +14,7 @@ function nighttime() {
   // sun
   noStroke();
   fill(250, 186, 3);
-  ellipse(700, nightsunpos = nightsunpos + .5, 70, 70);
+  ellipse(800, nightsunpos = nightsunpos + .1, 70, 70);
 //  1
   //text(frameCount,200,150);
 
@@ -32,10 +32,15 @@ function nighttime() {
   fill(0, 100, 0); // rgb
   rect(0, 350, width, 1000);
 
+  fill(4, 107, 0); // rgb
+  rect(0, 322, width, 1000);
+
 
   //street
   fill('#6E6C6C');
-  quad(660, 350, 740, 350, 1175, 1000, 275, 1000);
+  quad(660, 350, 940, 350, 1375, 1000, 275, 1000);
+   quad(690, 322, 907, 323, 1375, 1000, 275, 1000);
+
 
 }
 
@@ -52,7 +57,7 @@ function daylight() {
   // sun
   noStroke();
   fill(250, 186, 3);
-  ellipse(700, daysunpos = daysunpos - .5, 70, 70);
+  ellipse(800, daysunpos = daysunpos - .1, 70, 70);
   //  1
   //text(frameCount,200,150);
 
@@ -107,10 +112,10 @@ triangle(344, 179, 633, 322, 196, 322);
 
 
   fill('#6E6C6C');
-  quad(660, 350, 740, 350, 1175, 1000, 275, 1000);
+  quad(660, 350, 940, 350, 1375, 1000, 275, 1000);
   //street
   fill('#6E6C6C');
-  quad(690, 322, 707, 323, 1175, 1000, 275, 1000);
+  quad(690, 322, 907, 323, 1375, 1000, 275, 1000);
 
   mouseLocation();
 } // end daylight

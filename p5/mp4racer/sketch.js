@@ -79,21 +79,24 @@ function draw() {
         cars.push(new Car());
         timer = 0;
       }
+      
+        var rev = cars.reverse() ;
       for (var i = 0; i < cars.length; i++) { // Chris DRIVE
 
 
-        cars[i].display();
-        cars[i].drive();
+        rev[i].display();
+        rev[i].drive();
 
-        if (cars[i].pos.y > height) {
-            cars.splice(i, 1);
+        if (rev[i].pos.y > height) {
+            rev.splice(i, 1);
         }
-        if ((cars[i].pos.dist(carPos) < 40) && (cars[i].object == 2)) {
-          cars.splice(i, 1);
+        if ((rev[i].pos.dist(carPos) < 40) && (rev[i].object == 2)) {
+          rev.splice(i, 1);
 
           count++;
 
         }
+    
         // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
         //   cars.splice(i, 1) ;
         //   fuckedup++;

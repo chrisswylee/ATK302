@@ -88,7 +88,11 @@ function draw() {
         cars.push(new Car());
         timer = 0;
       }
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
         var rev = cars.reverse() ;
       for (var i = 0; i < cars.length; i++) { // Chris DRIVE
 
@@ -96,10 +100,17 @@ function draw() {
         rev[i].display();
         rev[i].drive();
 
+<<<<<<< HEAD
         // if (rev[i].pos.y > height) {
         //     rev.splice(i, 1);
         // }
         if ((rev[i].pos.dist(carPos) < 60) && (rev[i].object == 2)) {
+=======
+        if (rev[i].pos.y > height) {
+            rev.splice(i, 1);
+        }
+        if ((rev[i].pos.dist(carPos) < 40) && (rev[i].object == 2)) {
+>>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
           rev.splice(i, 1);
 
           if (count > 8) {
@@ -111,7 +122,11 @@ function draw() {
 
 
         }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
         // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
         //   cars.splice(i, 1) ;
         //   fuckedup++;

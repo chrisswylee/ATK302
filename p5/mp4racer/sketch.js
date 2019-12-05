@@ -1,3 +1,4 @@
+
 // Landscape Example
 // Coding for Artists - 2019
 // Instructor: Urban Reininger
@@ -14,8 +15,10 @@ var carPos;
 var loading;
 var count = 0;
 var fuckedup = 0;
-var leftwall = 400;
-var rightwall = 1229;
+var leftwall = 450;
+var rightwall = 1180;
+var enemy ;
+var arrow ;
 
 function preload() {
   song1 = loadSound("assets/lazerhawk.mp3"); //Chris song1
@@ -28,10 +31,10 @@ function setup() {
   tree1 = loadImage("assets/treereal.png");
   tree2 = loadImage("assets/treesmall.png");
   sign1 = loadImage("assets/chasesign1.png");
-  meme = loadImage("assets/dddmeme4.jpg");
+  enemy = loadImage("assets/coin.png");
   retroracer = loadImage("assets/retroracer.png");
   loading = loadImage("assets/startscreen2.png");
-
+  arrow = loadImage("assets/arrow1.png");
 
   imageMode(CENTER);
 
@@ -46,7 +49,7 @@ function setup() {
 
 
 
-  carPos = createVector(800, 600);
+  carPos = createVector(820, 700);
 
 
 
@@ -67,6 +70,12 @@ function draw() {
 
     case 1:
 
+          timer++;
+          if (timer > 200) {
+
+            myState = 2;
+            timer = 0
+          }
 
       push();
 
@@ -79,42 +88,111 @@ function draw() {
         cars.push(new Car());
         timer = 0;
       }
+
+        var rev = cars.reverse() ;
       for (var i = 0; i < cars.length; i++) { // Chris DRIVE
 
 
-        cars[i].display();
-        cars[i].drive();
+        rev[i].display();
+        rev[i].drive();
 
-        if (cars[i].pos.y > height) {
-            cars.splice(i, 1);
-        }
-        if ((cars[i].pos.dist(carPos) < 40) && (cars[i].object == 2)) {
-          cars.splice(i, 1);
+        // if (rev[i].pos.y > height) {
+        //     rev.splice(i, 1);
+        // }
+        if ((rev[i].pos.dist(carPos) < 60) && (rev[i].object == 2)) {
+          rev.splice(i, 1);
 
+          if (count > 8) {
+            myState = 2 ;
+          }
           count++;
 
+
+
+
         }
+
         // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
         //   cars.splice(i, 1) ;
         //   fuckedup++;
         // }
 
       }
-      image(retroracer, carPos.x, carPos.y, 500 * carPos.y / 600, 500 * carPos.y / 560);
+      image(retroracer, carPos.x, carPos.y, 150 * carPos.y / 600, 100 * carPos.y / 560);
       checkForKeys();
-      textSize(10) ;
+      // textSize(10) ;
       fill(255);
-      text(mouseX + ',' + mouseY, 20, 20);
+      // text(mouseX + ',' + mouseY, 20, 20);
       textSize(25);
-      text("Enemies defeated: " + count, 1400, 50) ;
+      text("Coins Collected: " + count, 1400, 50) ;
       // text("YOU FUCKED UP: " + fuckedup, 20, 40) ;
 
-
+      image(arrow, 900, 250, 60, 60) ;
+      textSize(40);
+      text("Collect Coins!", 930, 225) ;
       break;
 
     case 2:
-      daylight();
 
+      push() ;
+      daylight();
+      pop() ;
+
+
+
+            timer++;
+            if (timer > 100) {
+              cars.push(new Car());
+              timer = 0;
+            }
+
+              var rev = cars.reverse() ;
+            for (var i = 0; i < cars.length; i++) { // Chris DRIVE
+
+
+              rev[i].display();
+              rev[i].drive();
+
+              // if (rev[i].pos.y > height) {
+              //     rev.splice(i, 1);
+              // }
+              if ((rev[i].pos.dist(carPos) < 40) && (rev[i].object == 2)) {
+                rev.splice(i, 1);
+
+                if (count > 18) {
+                  myState = 1 ;
+              }
+                count++;
+
+
+
+
+              }
+
+              // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
+              //   cars.splice(i, 1) ;
+              //   fuckedup++;
+              // }
+
+            }
+            image(retroracer, carPos.x, carPos.y, 150 * carPos.y / 600, 100 * carPos.y / 560);
+            checkForKeys();
+            // textSize(10) ;
+            fill(255);
+
+            // text(mouseX + ',' + mouseY, 20, 20);
+            textSize(25);
+            text("Coins Collected: " + count, 1400, 50) ;
+            // text("YOU FUCKED UP: " + fuckedup, 20, 40) ;
+            image(arrow, 900, 250, 60, 60) ;
+            timer++;
+            if (timer > 3100) {
+
+              myState = 1;
+              timer = 0
+            }
+            textSize(40);
+            text("Collect Coins!", 930, 225) ;
 
       break;
 
@@ -199,10 +277,12 @@ function Car() {
 
   }
 
-  if (chance > 9) {
+  if (chance > 3) {
     this.object = 2; // it's the obstacle
-    this.pos = createVector(random(775, 850), 280);
-    this.velocity = createVector(random(-.5, -.5), random(.5, .5));
+    this.pos = createVector(random(690, 900), 280);
+    this.velocity = createVector(-.5, 10);
+
+
     console.log("spawned an obstacle") ;
   }
 
@@ -233,7 +313,7 @@ function Car() {
         break;
 
       case 2:
-        image(meme, this.pos.x, this.pos.y, 100 * this.pos.y / 450, 125 * this.pos.y / 450);
+        image(enemy, this.pos.x, this.pos.y, 100 * this.pos.y / 450, 100 * this.pos.y / 450);
         break;
     }
 
@@ -262,12 +342,12 @@ function checkForKeys() {
   if (keyIsDown(RIGHT_ARROW)) carPos.x = carPos.x + 10; //velocity arrow value
 
 
-  if ((keyIsDown(UP_ARROW)) && (carPos.y > 280)) {
+  if ((keyIsDown(UP_ARROW)) && (carPos.y > 315)) {
     carPos.y = carPos.y - 6 //velocity arrow value
   }
 
   if ((keyIsDown(DOWN_ARROW)) && (carPos.y < height - 30)) {
-    carPos.y = carPos.y + 2; //velocity arrow value
+    carPos.y = carPos.y + 5; //velocity arrow value
 
   }
 

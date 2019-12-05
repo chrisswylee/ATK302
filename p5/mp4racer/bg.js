@@ -1,4 +1,4 @@
-var daysunpos=200;
+var daysunpos=375;
 var nightsunpos=200;
 
 function nighttime() {
@@ -40,6 +40,72 @@ function nighttime() {
   fill('#6E6C6C');
   quad(660, 350, 940, 350, 1375, 1000, 275, 1000);
    quad(690, 322, 907, 323, 1375, 1000, 275, 1000);
+
+   //mountains
+   fill('#C0C0C0');
+   strokeWeight(0);
+   triangle(276, 161, 440, 322, 107, 322);
+
+
+   fill('#A0A0A0');
+   strokeWeight(0);
+   triangle(123, 119, 440, 322, -15, 322);
+
+   fill('#A0A0A0');
+   strokeWeight(0);
+   triangle(427, 147, 609, 322, 238, 322);
+
+
+   //mountians 2nd setup
+   fill('#808080');
+   strokeWeight(0);
+   triangle(427, 147, 609, 322, 178, 322);
+
+   fill('#808080');
+   strokeWeight(0);
+   triangle(25, 138, 259, 322, -15, 322);
+
+
+   fill('#606060');
+   strokeWeight(0);
+   triangle(0, 169, 255, 322, -30, 322);
+
+   fill('#606060');
+   strokeWeight(0);
+   triangle(344, 179, 633, 322, 196, 322);
+
+   //mountains right side
+   fill('#C0C0C0');
+   strokeWeight(0);
+   triangle(276, 161, 440, 322, 107, 322);
+
+
+   fill('#A0A0A0');
+   strokeWeight(0);
+   triangle(123, 119, 440, 322, -15, 322);
+
+   fill('#A0A0A0');
+   strokeWeight(0);
+   triangle(427, 147, 609, 322, 238, 322);
+
+
+   //mountians 2nd setup
+   fill('#808080');
+   strokeWeight(0);
+   triangle(427, 147, 609, 322, 178, 322);
+
+   fill('#808080');
+   strokeWeight(0);
+   triangle(25, 138, 259, 322, -15, 322);
+
+
+   fill('#606060');
+   strokeWeight(0);
+   triangle(0, 169, 255, 322, -30, 322);
+
+   fill('#606060');
+   strokeWeight(0);
+   triangle(344, 179, 633, 322, 196, 322);
 
 
 }
@@ -117,5 +183,5 @@ triangle(344, 179, 633, 322, 196, 322);
   fill('#6E6C6C');
   quad(690, 322, 907, 323, 1375, 1000, 275, 1000);
 
-  mouseLocation();
+  // mouseLocation();
 } // end daylight

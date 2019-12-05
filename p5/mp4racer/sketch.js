@@ -88,11 +88,7 @@ function draw() {
         cars.push(new Car());
         timer = 0;
       }
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
         var rev = cars.reverse() ;
       for (var i = 0; i < cars.length; i++) { // Chris DRIVE
 
@@ -100,17 +96,10 @@ function draw() {
         rev[i].display();
         rev[i].drive();
 
-<<<<<<< HEAD
         // if (rev[i].pos.y > height) {
         //     rev.splice(i, 1);
         // }
         if ((rev[i].pos.dist(carPos) < 60) && (rev[i].object == 2)) {
-=======
-        if (rev[i].pos.y > height) {
-            rev.splice(i, 1);
-        }
-        if ((rev[i].pos.dist(carPos) < 40) && (rev[i].object == 2)) {
->>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
           rev.splice(i, 1);
 
           if (count > 8) {
@@ -122,11 +111,7 @@ function draw() {
 
 
         }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> e0369fe7381469e26a6225e175acd6371c6adc68
         // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
         //   cars.splice(i, 1) ;
         //   fuckedup++;
@@ -175,8 +160,68 @@ function draw() {
                 rev.splice(i, 1);
 
                 if (count > 18) {
-                  myState = 1 ;
+                  myState = 3 ;
               }
+                count++;
+
+
+
+
+              }
+
+              // if ((cars[i].pos.dist(carPos) < 50) && (cars[i].object == 0)) {
+              //   cars.splice(i, 1) ;
+              //   fuckedup++;
+              // }
+
+            }
+            image(retroracer, carPos.x, carPos.y, 150 * carPos.y / 600, 100 * carPos.y / 560);
+            checkForKeys();
+            // textSize(10) ;
+            fill(255);
+
+            // text(mouseX + ',' + mouseY, 20, 20);
+            textSize(25);
+            text("Coins Collected: " + count, 1400, 50) ;
+            // text("YOU FUCKED UP: " + fuckedup, 20, 40) ;
+            image(arrow, 900, 250, 60, 60) ;
+            timer++;
+
+            textSize(40);
+            text("Collect Coins!", 930, 225) ;
+
+      break;
+
+      case 3:
+
+      push() ;
+      daylight();
+      pop() ;
+
+
+
+            timer++;
+            if (timer > 10) {
+              cars.push(new Car());
+              timer = 0;
+            }
+
+              var rev = cars.reverse() ;
+            for (var i = 0; i < cars.length; i++) { // Chris DRIVE
+
+
+              rev[i].display();
+              rev[i].drive();
+
+              // if (rev[i].pos.y > height) {
+              //     rev.splice(i, 1);
+              // }
+              if ((rev[i].pos.dist(carPos) < 40) && (rev[i].object == 2)) {
+                rev.splice(i, 1);
+
+              //   if (count > 18) {
+              //     myState = 1 ;
+              // }
                 count++;
 
 
@@ -210,7 +255,6 @@ function draw() {
             text("Collect Coins!", 930, 225) ;
 
       break;
-
 
 
   }
@@ -261,7 +305,7 @@ function Car() {
   var chance = random(10);
 
 
-  if (chance > 3) { //if its greater than 3 then it will be tree
+  if (chance < 2) { //if its greater than 3 then it will be tree
     // this.pos = createVector(random(100, 550), 235);
     // this.velocity = createVector(random(-1, -2), random(1, 1));
     //trees
@@ -293,7 +337,7 @@ function Car() {
   }
 
   if (chance > 3) {
-    this.object = 2; // it's the obstacle
+    this.object = 2; // it's the coin
     this.pos = createVector(random(690, 900), 280);
     this.velocity = createVector(-.5, 10);
 

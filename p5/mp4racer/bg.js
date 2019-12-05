@@ -14,7 +14,7 @@ function nighttime() {
   // sun
   noStroke();
   fill(250, 186, 3);
-  ellipse(800, nightsunpos = nightsunpos + .1, 70, 70);
+  ellipse(800, nightsunpos = nightsunpos + .2, 70, 70);
 //  1
   //text(frameCount,200,150);
 
